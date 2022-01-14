@@ -1,21 +1,18 @@
+//函数交换要使用寻址调用，不然只能改变函数中参数的值，不能改变main中你想改变的值。
 #include<stdio.h>
-
-
 void swap(int* pa, int* pb)
 {
-	int tmp = 0;
-	tmp = *pa;
+	int tmp = *pa;
 	*pa = *pb;
 	*pb = tmp;
 }
+
+
 int main()
 {
-	int a = 10;
-	int b = 20;
+	int a = 20;
+	int b = 10;
 	swap(&a, &b);
-	printf("a=%d\nb=%d\n", a, b);
-
-
-
+	printf("a=%d b=%d", a, b);
 	return 0;
 }
