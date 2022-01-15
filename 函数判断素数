@@ -1,0 +1,32 @@
+//使用函数判断一个数是不是素数
+#include<stdio.h>
+int prime_number(int x,int y)
+{
+	for (y = 2; y < x; y++)
+	{
+		if (x % y != 0)//一个数除了1和它本身以外没有可以整除的因数就是素数
+		{
+			return 1;
+		}
+		else
+		{
+			return 0;
+		}
+	}
+}
+int main()
+{
+	int a = 0;
+	int i = 0;
+	printf("请输入一个数：");
+	scanf_s("%d", &a);
+	if (1 == prime_number(a, i))
+	{
+		printf("是素数");
+	}
+	else
+	{
+		printf("不是素数");
+	}
+	return 0;
+}
