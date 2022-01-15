@@ -1,0 +1,68 @@
+//创建一个数组，
+//实现函数init（）初始化数组、
+//实现empty（）清空数组、
+//实现reverse（）函数完成数组元素的逆置。
+#include<stdio.h>
+void init(int arr[],int size)
+{
+	for (int i = 0; i < size; i++)//遍历数组所有元素
+	{
+		arr[i] = 1;//全部赋值1，初始化为1
+		printf("%d", arr[i]);
+	}
+}
+void empty(int arr[],int size)
+{
+	for (int i = 0; i < size; i++)//遍历数组所有元素
+	{
+		arr[i] = 0;//全部赋值0，清空相当与初始化为0
+		printf("%d", arr[i]);
+			
+	}
+}
+void reverse(int arr[],int size)
+{
+	int left = 0;//数组最左边的元素
+	int right = size - 1;//数组最右边的元素
+	int tmp = 0;//用于存储要交换的变量
+	//当left和right一样的时候元素就是奇数个，中间的不用交换
+	for (; left < right; left++,right--)//只要交换一半，就可以全部逆置
+	{
+		tmp = arr[left];
+		arr[left] = arr[right];
+		arr[right] = tmp;
+	}
+	for (int i = 0; i < size; i++)
+	{
+		printf("%d", arr[i]);
+	}
+}
+int main()
+	{
+	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+	int n = 0;
+	int size = 0;
+	size = sizeof(arr) / sizeof(arr[0]);//获取数组元素个数
+	printf("选择你需要执行的功能\n");
+	printf("1.初始化数组\n");
+	printf("2.清空数组\n");
+	printf("3.数组元素逆置\n");
+	scanf_s("%d", &n);
+		if (n == 1)
+		{
+			init(arr,size);
+		}
+		else if(n==2)
+		{
+			empty(arr,size);
+		}
+		else if(n==3)
+		{
+			reverse(arr,size);
+		}
+		else
+		{
+			("请输入1-3\n");
+		}
+	return 0;
+	}
