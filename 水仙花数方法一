@@ -1,0 +1,15 @@
+#include<stdio.h>
+#include<math.h>
+//方法1
+int main()
+{
+	int i = 0;
+	for (i = 2; i < 1000; i++)
+	{
+		if (i==pow(i/100, 3) + pow(i%100/10, 3) + pow(i%100%10, 3) )
+		{
+			printf("%d ", i);
+		}
+	}
+	return 0;
+}
