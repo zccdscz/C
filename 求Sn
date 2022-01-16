@@ -1,0 +1,20 @@
+//求Sn = a + aa + aaa + aaaa + aaaaa的前5项之和，其中a是一个数字，
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int Sn = 0;
+	int i = 0;
+	int m = 0;
+	int a = 0;
+	int sum = 0;
+	scanf_s("%d", &a);
+	for (i = 0; i < 5; i++)
+	{
+		m = a * pow(10, i);//求最高位数字
+		sum += m;
+		Sn += sum;
+	}
+	printf("%d", Sn);
+	return 0;
+}
