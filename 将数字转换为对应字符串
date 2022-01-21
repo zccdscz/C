@@ -1,0 +1,34 @@
+//将数字转换为对应字符串
+#include <stdio.h>
+void number_to_string(int n, char s[100])
+{
+	int i = 0;
+	int p = n;//保存n，是为了之后输出整数n
+	while (n > 0)
+	{
+		s[i++] = n % 10 + '0';
+		//举个例子：输入为1234
+		//n = 1234 s[0] = 1234%10 +'0' = 4(此时为字符4)，n = n/10 = 123
+		//n = 123  s[1] = 123%10+'0' = 3 n = n/10 = 12;
+		n = n / 10;
+	}
+	s[i] = '\0';
+	printf("整数是：%d\n", p);
+	printf("字符串是：");
+	int m;//此时应该倒序输出此字符串
+	for (m = i - 1; m >= 0; m--)
+	{
+		printf("%c ", s[m]);
+	}
+	printf("\n");
+}
+
+int main()
+{
+	int n;
+	char s[100] = { 0 };
+	printf("请输入要转化的数字\n");
+	scanf_s("%d", &n);
+	number_to_string(n, s);
+	return 0;
+}
