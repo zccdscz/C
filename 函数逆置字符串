@@ -1,0 +1,32 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+int my_string(char* str)
+{
+    int count = 0;
+    while (*str != '\0')//当指针指向arr数组中的\0终止符返回count否则count++以获得字符串个数
+    {
+        count++;
+        str++;//得到正确字符时进入下一个字符的检测
+    }
+    return count;
+}
+void reverse_string(char arr[])
+{
+    int left = 0;//最左边的字符
+    int right = my_string(arr) - 1;//my_string函数获得字符串个数，-1获得最后一个字符的脚标；
+    while (left<right)//将左边元素和右边元素调换
+    {
+        int tmp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = tmp;
+        left++;//每次换完左+右-进入下一个元素
+        right--;
+    }
+}
+int main()
+{
+    char arr[] = "abcdef";
+    reverse_string(arr);
+    printf("%s\n", arr);
+    return 0;
+}
