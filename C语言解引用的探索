@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+ int main()
+{
+    int a = 10;//先声明一个变量a给他一个小盒子，然后把10装进这个小盒子里面
+    int* p; //然后对指针p，先分配给他一个小盒子
+    p = &a; // 往小盒子里面放a的地址
+    * p = 5;//表示将整型值5储存到指针p小盒子里面的地址指向的那个小盒子里面
+    printf("%d\n", *p);//看小盒子里面有什么
+    system("PAUSE");
+    return 0;
+ }
