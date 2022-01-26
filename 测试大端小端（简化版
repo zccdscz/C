@@ -1,0 +1,24 @@
+//测试大端小端（简化版）
+#include<stdio.h>
+int check_sys()
+{
+	int a = 1;
+	//取地址a，强制转换为char*指针，char*访问1个字节地址，int*访问4个字节，然后解引用
+	//再返回这个数值就可以得到最低位1个字节地址的数值
+	return *(char*)&a;
+
+}
+int main()
+{	
+	int ret = check_sys();
+	if (ret == 1)
+	{
+		printf("小端");
+
+	}
+	else
+	{
+		printf("大端");
+	}
+	return 0;
+}
