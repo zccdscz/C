@@ -1,0 +1,50 @@
+#include<stdio.h>
+
+int Add(int x, int y)
+{
+	int sum = 0;
+	sum = x + y;
+	return sum;
+}
+
+int Sub(int x, int y)
+{
+	return x - y;
+}
+int Mul(int x, int y)
+{
+	return x * y;
+}
+int Div(int x, int y)
+{
+	return x / y;
+}
+
+int main()
+{
+	//int a = 10;
+	//int b = 20;
+	//int (*p)(int, int) = Add;
+	//printf("%d\n", (*p)(2, 3));
+	int (*parr[4])(int, int) = { Add,Sub,Mul,Div };//这是一个函数指针数组，存放四个函数指针，指向四个函数的地址
+	int i = 0;
+	for (i = 0; i < 4; i++)
+	{
+		printf("%d ", parr[i](2, 3));//调用函数指针可以不用加*解引用
+		printf("%d ", (*parr[i])(2, 3));//也可以加上(*)来解引用
+	return 0;
+}
+
+
+
+
+(*(void(*)())0)();//将0强制类型转换为void(*)()这种函数指针类型，0就是函数的地址，然后解引用这个地址得到这个函数调用
+void (         *signal(int, void(*)(int))       )(int);
+//一个包含int类型和一个函数指针类型的signal函数的返回类型是一个函数指针void(*)(int)
+//signal是一个函数声明
+//signal函数的参数有两个，一个是int类型，一个是函数指针，这个函数指针的参数是int类型返回类型是void
+//signal函数的返回类型也是一个函数指针，这个函数指针的参数是int类型返回类型是void
+//简化
+typedef void(*fun_t)(int);
+fun_t signal(int, fun_t);== void (*signal(int, void(*)(int)))(int);
+
