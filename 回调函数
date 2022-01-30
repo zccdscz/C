@@ -1,0 +1,73 @@
+#include<stdio.h>
+//回调函数就是一个通过函数指针调用的函数
+void calc(int(*pf)(int, int))//回调函数，接收了一个函数的地址，通过收到的这个地址在函数里调用它
+{
+	int x = 0;
+	int y = 0;
+	printf("请输入两个操作数:>");
+	scanf_s("%d %d", &x, &y);
+	printf("%d\n", pf(x, y));
+
+}
+void menu()
+{
+	printf("****************************************\n");
+	printf("**    1.Add               2.Sub       **\n");
+	printf("**    3.Mul               4.Div       **\n");
+	printf("**              0.exit                **\n");
+	printf("****************************************\n");
+}
+int Add(int x, int y)
+{
+	int sum = 0;
+	sum = x + y;
+	return sum;
+}
+
+int Sub(int x, int y)
+{
+	return x - y;
+}
+int Mul(int x, int y)
+{
+	return x * y;
+}
+int Div(int x, int y)
+{
+	return x / y;
+}
+int main()
+{
+	int input = 0;
+	int x = 0;
+	int y = 0;
+	do
+	{
+		menu();
+		printf("请选择:>");
+		scanf_s("%d", &input);
+		switch (input)
+		{
+		case 1:
+			calc(Add);
+			break;
+		case 2:
+			calc(Sub);
+			break;
+		case 3:
+			calc(Mul);
+			break;
+		case 4:
+			calc(Div);
+			break;
+		case 0:
+			printf("退出\n");
+			break;
+		default:
+			printf("选择错误\n");
+		}
+	} while (input);
+	return 0;
+}
+
+
