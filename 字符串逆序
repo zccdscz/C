@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<string.h>
+#include<assert.h>
+void reveser(char*str)
+{
+	assert(str);
+	int len = strlen(str);
+	char* left = str;
+	char* right = str + len-1;//起始位置加字符串大小-1等于最后一个元素位置(-1是因为\0)
+	while (left<right)
+	{
+		char tmp = *left;//tmp==a;
+		*left = *right;//left==f
+		*right = tmp;//right==a
+		left++;
+		right--;
+
+	}
+}
+
+int main()
+{
+
+	char arr[256] = { 0 };
+	//scanf_s("请输入想要逆序的字符%s", &arr,256);//%s字符串在输入时后面要加上长度
+	gets_s(arr);//读取一行
+	reveser(arr);//arr代表数组首元素地址，字符串首元素就是首字符
+
+	printf("逆序输出为%s\n", arr);
+	return 0;
+
+}
